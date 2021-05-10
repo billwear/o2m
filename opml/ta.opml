@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+	<head>
+		<dateCreated>Mon May 10 2021 14:40:01 GMT-0500 (Central Daylight Time)</dateCreated>
+		<dateModified>Mon May 10 2021 14:40:01 GMT-0500 (Central Daylight Time)</dateModified>
+	</head>
+	<body>
+		<outline text="Tags and annotations" _note="||2.7|2.8|2.9|3.0|&#10;|-----:|:-----:|:-----:|:-----:|:-----:|&#10;Snap|[CLI](/t/maas-tags-snap-2-7-cli/2886) ~ [UI](/t/maas-tags-snap-2-7-ui/2887)|[CLI](/t/maas-tags-snap-2-8-cli/2888) ~ [UI](/t/maas-tags-snap-2-8-ui/2889)|[CLI](/t/maas-tags-snap-2-9-cli/2890) ~ [UI](/t/maas-tags-snap-2-9-ui/2891)|[CLI](/t/maas-tags-snap-3-0-cli/4021) ~ [UI](/t/maas-tags-snap-3-0-ui/4022)|&#10;Packages|[CLI](/t/maas-tags-deb-2-7-cli/2892) ~ [UI](/t/maas-tags-deb-2-7-ui/2893)|[CLI](/t/maas-tags-deb-2-8-cli/2894) ~ [UI](/t/maas-tags-deb-2-8-ui/2895)|[CLI](/t/maas-tags-deb-2-9-cli/2896) ~ [UI](/t/maas-tags-deb-2-9-ui/2897)|[CLI](/t/maas-tags-deb-3-0-cli/4023) ~ [UI](/t/maas-tags-deb-3-0-ui/4024)|&#10;&#10;Tags are a convenient way to assign descriptive words to machines, interfaces, and storage devices. Using MAAS tags, you can easily select machines that meet certain criteria, helping you to remember that you&apos;ve defined or reserved certain machines for certain functions. Annotations extend this capability considerably, offering both static annotations (&quot;notes&quot; in the UI, or machine &quot;description&quot; in the CLI) and dynamic annotations (&quot;workload annotations&quot; for the UI, or &quot;owner data&quot; in the CLI). &#10;&#10;This article will show you how to:&#10;&#10;{insert branch links}&#10;&#10;For convenience, each of the headings is hyperlinked for bookmarking.&#10;&#10;">
+			<outline text="{ui}Work with tags" _note="When working with tags, there are some universal rules you need to follow:&#10;&#10;1. Tag names can include any combination of alphabetic letters (a-zA-Z), numbers (0-9), dashes (-) and underscores (_).&#10;2. Tag names can be a maximum of 256 characters in length.&#10;3. Tag names *cannot* include spaces.&#10;&#10;This section will show you how to:&#10;&#10;{insert branch links}&#10;&#10;For convenience, each of the headings is hyperlinked for bookmarking.&#10;">
+				<outline text="Work with virtual/machine tags" _note="This section will show you how to:&#10;&#10;{insert branch links}&#10;&#10;For convenience, each of the headings is hyperlinked for bookmarking.&#10;">
+					<outline text="Create machine tags with built-in kernel options" _note="To create machine tags with built-in kernel options, you must use the [MAAS CLI]({r1}).&#10;"></outline>
+					<outline text="Create/assign machine tags to machines" _note="With the MAAS UI, you create tags as you assign them.  The  UI provides a drop-down completion menu to avoid duplicates with spelling errors.  &#10;&#10;To create machine tags, and assign them to machines as you create them, use the following procedure:&#10;&#10;"></outline>
+					<outline text="Remove/delete machine tags from machines" _note="With the MAAS UI, you remove tags, rather than explicitly deleting them.  Tags are &quot;deleted&quot; when you have removed them from all machines.   &#10;&#10;To remove machine tags from a machine, use the following procedure:&#10;"></outline>
+					<outline text="List machine tags for multiple machines" _note="In the MAAS UI, you don&apos;t explicitly list all machine tags; instead, you filter by them using the &quot;Filter by&quot; dropdown.  This filtered list does not distinguish between virtual machines (VMs) and physical machines, unless you&apos;ve assigned tags to help with that distinction.&#10;&#10;Of course, if you need to do so, you can see a list of all the tags assigned to machines by opening the &quot;tags&quot; section of the filter dropdown.  With the UI, you can&apos;t see a list of tags assigned to all virtual machine hosts (VM hosts), or filter VM hosts by tag. It is possible to get a more comprehensive list of machine tags [using the CLI]({r2}), and [retrieve a list of VM host tags]({r3}).&#10;&#10;Here&apos;s how you can filter the machine list by machine tags, using the MAAS UI:&#10;&#10;"></outline>
+					<outline text="View machine tags for one machine" _note="To view the tags assigned to a specific machine, use the following procedure:&#10;&#10;"></outline>
+					<outline text="View machine tags for a VM host" _note="To view the machine tags assigned to a VM host, here&apos;s the procedure you&apos;ll follow:&#10;&#10;Note that you can only see the tags for a VM host in the same place that you change it.  For a more comprehensive list of VM host tags, use the [MAAS CLI]({r3}).&#10;&#10;"></outline>
+				</outline>
+				<outline text="work with controller tags">
+					<outline text="create / assign"></outline>
+					<outline text="remove / delete"></outline>
+					<outline text="list">
+						<outline text="list of machines connected to controller"></outline>
+						<outline text="for a comprehensive list, use the CLI">
+							<outline text="link"></outline>
+						</outline>
+					</outline>
+					<outline text="view">
+						<outline text="by looking at controller"></outline>
+						<outline text="for a comprehensive view, use the CLI">
+							<outline text="link"></outline>
+						</outline>
+					</outline>
+				</outline>
+				<outline text="work with device tags">
+					<outline text="create / assign"></outline>
+					<outline text="remove / delete"></outline>
+					<outline text="list">
+						<outline text="filter by devices"></outline>
+						<outline text="for a comprehensive list, use the CLI">
+							<outline text="link"></outline>
+						</outline>
+					</outline>
+					<outline text="view">
+						<outline text="look at each individual device"></outline>
+						<outline text="for a comprehensive view, use the CLI">
+							<outline text="link"></outline>
+						</outline>
+					</outline>
+				</outline>
+				<outline text="work with storage tags">
+					<outline text="block devices">
+						<outline text="create / assign">
+							<outline text="disk has to be in available state, no active partitions"></outline>
+							<outline text="for expanded capabilities, use the CLI">
+								<outline text="link"></outline>
+							</outline>
+						</outline>
+						<outline text="remove / delete">
+							<outline text="disk has to be in available state, no active partitions"></outline>
+							<outline text="for expanded capabilities, use the CLI">
+								<outline text="link"></outline>
+							</outline>
+						</outline>
+						<outline text="list">
+							<outline text="by machine with filter"></outline>
+							<outline text="for a comprehensive list, use the CLI">
+								<outline text="link"></outline>
+							</outline>
+						</outline>
+						<outline text="view">
+							<outline text="by machine/storage"></outline>
+							<outline text="for a comprehensive view, use the CLI">
+								<outline text="link"></outline>
+							</outline>
+						</outline>
+					</outline>
+					<outline text="partitions">
+						<outline text="create / assign">
+							<outline text="CLI-only"></outline>
+							<outline text="link"></outline>
+						</outline>
+						<outline text="remove / delete">
+							<outline text="CLI-only"></outline>
+							<outline text="link"></outline>
+						</outline>
+						<outline text="list">
+							<outline text="by machine with filter"></outline>
+							<outline text="for a comprehensive list, use the CLI">
+								<outline text="link"></outline>
+							</outline>
+						</outline>
+						<outline text="view">
+							<outline text="by machine/storage"></outline>
+							<outline text="for a comprehensive view, use the CLI">
+								<outline text="link"></outline>
+							</outline>
+						</outline>
+					</outline>
+				</outline>
+				<outline text="work with network tags">
+					<outline text="create / assign"></outline>
+					<outline text="remove / delete"></outline>
+					<outline text="list">
+						<outline text="CLI-only"></outline>
+						<outline text="link"></outline>
+					</outline>
+					<outline text="view">
+						<outline text="by editing physical interface"></outline>
+						<outline text="for a comprehensive view, use the CLI">
+							<outline text="link"></outline>
+						</outline>
+					</outline>
+				</outline>
+				<outline text="work with node tags">
+					<outline text="CLI-only"></outline>
+					<outline text="link"></outline>
+				</outline>
+			</outline>
+			<outline text="{ui}Work with annotations">
+				<outline text="Work with static annotations"></outline>
+				<outline text="{3.0} Work with dynamic annotations"></outline>
+			</outline>
+			<outline text="{cli}Work with tags">
+				<outline text="Work with machine tags">
+					<outline text="Create tags"></outline>
+					<outline text="{r1}Create tags with built-in kernel options"></outline>
+					<outline text="Assign machine tags to a machine" _note="maas $PROFILE tag update-nodes $TAG_NAME add=$SYSTEM_ID&#10;&#10;"></outline>
+					<outline text="Remove machine tags from a machine" _note="maas $PROFILE tag update-nodes $TAG_NAME remove=$SYSTEM_ID&#10;"></outline>
+					<outline text="{r2}List machine tags for all machines" _note="maas admin machines read | jq -r &apos;([&quot;hostname&quot;,&quot;sysid&quot;,&quot;machine_tags&quot;]|(.,map(length*&quot;-&quot;))),(.[]|[.hostname,.system_id,.tag_names[]]) | @tsv&apos; | column -t&#10;"></outline>
+					<outline text="View machine tags for one machine" _note="maas admin machine read xn8taa | jq -r &apos;([&quot;hostname&quot;,&quot;sysid&quot;,&quot;machine_tags&quot;]|(.,map(length*&quot;-&quot;))),([.hostname,.system_id,.tag_names[]]) | @tsv&apos; | column -t&#10;&#10;"></outline>
+				</outline>
+				<outline text="Work with virtual machine tags">
+					<outline text="Assign tags to a virtual machine" _note="maas $PROFILE tag update-nodes $TAG_NAME add=$SYSTEM_ID&#10;"></outline>
+					<outline text="Remove tags from a virtual machine" _note="maas $PROFILE tag update-nodes $TAG_NAME remove=$SYSTEM_ID&#10;"></outline>
+					<outline text="List tags for all virtual machines" _note="maas admin vmhosts read | jq -r &apos;(&quot;name&quot;,&quot;id&quot;,&quot;tags&quot;]|(.,map(length*&quot;-&quot;))),(.[]|[.name,.id,.tags[]]) | @tsv&apos; @ column -t&#10;"></outline>
+					<outline text="{r3}List tags for all VM hosts"></outline>
+					<outline text="View tags for one virtual machine" _note="maas admin vmhost read 1 | jq -r &apos;(&quot;name&quot;,&quot;id&quot;,&quot;tags&quot;]|(.,map(length*&quot;-&quot;))),([.name,.id,.tags[]]) | @tsv&apos; @ column -t&#10;"></outline>
+				</outline>
+				<outline text="Work with region controller tags">
+					<outline text="Assign tags to a region controller" _note="maas $PROFILE tag update-nodes $TAG_NAME add=$SYSTEM_ID&#10;"></outline>
+					<outline text="Remove tags from a region controller" _note="maas $PROFILE tag update-nodes $TAG_NAME remove=$SYSTEM_ID&#10;"></outline>
+					<outline text="List tags for all region controllers" _note="maas admin region-controllers read | jq -r &apos;([&quot;hostname&quot;,&quot;sysid&quot;,&quot;tags&quot;]|(.,map(length*&quot;-&quot;))),(.[]|[.hostname,.system_id,.tag_names[]]) | @tsv&apos; | column -t&#10;"></outline>
+					<outline text="View tags for one region controller" _note="maas admin region-controller read xn8taa | jq -r &apos;([&quot;hostname&quot;,&quot;sysid&quot;,&quot;tags&quot;]|(.,map(length*&quot;-&quot;))),([.hostname,.system_id,.tag_names[]]) | @tsv&apos; | column -t&#10;"></outline>
+				</outline>
+				<outline text="Work with rack controller tags">
+					<outline text="Assign tags to a rack controller" _note="maas $PROFILE tag update-nodes $TAG_NAME add=$SYSTEM_ID&#10;"></outline>
+					<outline text="Remove tags from a rack controller" _note="maas $PROFILE tag update-nodes $TAG_NAME remove=$SYSTEM_ID&#10;"></outline>
+					<outline text="List tags for all rack controllers" _note="maas admin rack-controllers read | jq -r &apos;([&quot;hostname&quot;,&quot;sysid&quot;,&quot;tags&quot;]|(.,map(length*&quot;-&quot;))),(.[]|[.hostname,.system_id,.tag_names[]]) | @tsv&apos; | column -t&#10;"></outline>
+					<outline text="View tags for one rack controller" _note="maas admin rack-controller read xn8taa | jq -r &apos;([&quot;hostname&quot;,&quot;sysid&quot;,&quot;tags&quot;]|(.,map(length*&quot;-&quot;))),([.hostname,.system_id,.tag_names[]]) | @tsv&apos; | column -t&#10;"></outline>
+				</outline>
+				<outline text="Work with device tags">
+					<outline text="Assign tags to a device" _note="maas $PROFILE tag update-nodes $TAG_NAME add=$SYSTEM_ID&#10;"></outline>
+					<outline text="Remove tags from a device" _note="maas $PROFILE tag update-nodes $TAG_NAME remove=$SYSTEM_ID&#10;"></outline>
+					<outline text="List tags for all devices"></outline>
+					<outline text="View tags for one device"></outline>
+				</outline>
+				<outline text="Work with storage tags">
+					<outline text="Work with block device tags">
+						<outline text="Assign tags to a block device" _note="maas admin block-device add-tag xn8taa 8 tag=hello&#10;"></outline>
+						<outline text="Remove tags from a block device" _note="maas admin block-device remove-tag xn8taa 8 tag=hello&#10;"></outline>
+						<outline text="List tags for all block devices" _note="maas admin block-devices read xn8taa | jq -r &apos;([&quot;id&quot;,&quot;tags&quot;]|(.,map(length*&quot;-&quot;))),(.[]|[.id,.tags[]]) | @tsv&apos; | column -t&#10;"></outline>
+						<outline text="View tags for one block device" _note="maas admin block-device read xn8taa 8 | jq -r &apos;([&quot;id&quot;,&quot;tags&quot;]|(.,map(length*&quot;-&quot;))),([.id,.tags[]]) | @tsv&apos; | column -t&#10;"></outline>
+					</outline>
+					<outline text="Work with partition tags">
+						<outline text="Assign tags to a partition" _note="maas admin partition add-tag xn8taa 8 67 tag=hello&#10;"></outline>
+						<outline text="Remove tags from a partition" _note="maas admin partition remove-tag xn8taa 8 67 tag=hello&#10;"></outline>
+						<outline text="List tags for all partitions" _note="maas admin partitions read xn8taa 8 | jq -r &apos;([&quot;id&quot;,&quot;tags&quot;]|(.,map(length*&quot;-&quot;))),(.[]|[.id,.tags[]]) | @tsv&apos; | column -t&#10;"></outline>
+						<outline text="View tags for one partition" _note="maas admin partition read xn8taa 8 67 | jq -r &apos;([&quot;id&quot;,&quot;tags&quot;]|(.,map(length*&quot;-&quot;))),([.id,.tags[]]) | @tsv&apos; | column -t&#10;"></outline>
+					</outline>
+				</outline>
+				<outline text="Work with network tags">
+					<outline text="Assign tags to a network interface" _note="maas admin interface add-tag xn8taa 9 tag=&quot;something&quot;&#10;"></outline>
+					<outline text="Remove tags from a network interface" _note="maas admin interface remove-tag xn8taa 9 tag=&quot;prokoko&quot;&#10;"></outline>
+					<outline text="List tags for all network interfaces" _note="maas admin nodes read | jq -r &apos;([&quot;hostname&quot;,&quot;sysid&quot;,&quot;interface_tags&quot;]|(.,map(length*&quot;-&quot;))),(.[]|[.hostname,.system_id,.interface_set[].tags[]]) | @tsv&apos; @ column -t&#10;&#10;maas admin interfaces read xn8taa | jq -r &apos;([&quot;ID&quot;,&quot;TAGS&quot;]|(map(length*&quot;-&quot;))),(.[]|[.id,.tags[]]) | @tsv&apos; | column -t&#10;"></outline>
+					<outline text="View tags for one network interface" _note="maas admin interface read xn8taa 9 | jq -r &apos;([.hostname,.tags[]])&apos;&#10;&#10;"></outline>
+				</outline>
+				<outline text="Work with node tags">
+					<outline text="Assign tags to a node" _note="maas $PROFILE tag update-nodes $TAG_NAME add=$SYSTEM_ID&#10;"></outline>
+					<outline text="View tags for one node" _note="maas admin node read xn8taa | jq -r &apos;(.hostname,.tag_names[])&apos;&#10;"></outline>
+					<outline text="Remove tags from a node" _note="maas $PROFILE tag update-nodes $TAG_NAME remove=$SYSTEM_ID&#10;"></outline>
+					<outline text="List tags for all nodes" _note="maas admin nodes read | jq -r &apos;([&quot;hostname&quot;,&quot;sysid&quot;,&quot;tags&quot;]|(.,map(length*&quot;-&quot;))),(.[]|[.hostname,.sysid,.tag_names[]]) | @tsv&apos; | column -t&#10;"></outline>
+				</outline>
+			</outline>
+			<outline text="{cli}Work with annotations">
+				<outline text="work with static annotations">
+					<outline text="machine description"></outline>
+				</outline>
+				<outline text="work with dynamic (workload) annotations">
+					<outline text="set owner data"></outline>
+				</outline>
+			</outline>
+			<outline text="{todo}add top links">
+				<outline text="tutorial"></outline>
+				<outline text="technical reference"></outline>
+				<outline text="explanation"></outline>
+				<outline text="permuted index"></outline>
+			</outline>
+		</outline>
+	</body>
+</opml>

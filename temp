@@ -1,0 +1,417 @@
+
+<a href=#heading--tags-and-annotations><h1 id="heading--tags-and-annotations">Tags and annotations</h1></a>
+
+||2.7|2.8|2.9|3.0|
+|-----:|:-----:|:-----:|:-----:|:-----:|
+Snap|[CLI](/t/maas-tags-snap-2-7-cli/2886) ~ [UI](/t/maas-tags-snap-2-7-ui/2887)|[CLI](/t/maas-tags-snap-2-8-cli/2888) ~ [UI](/t/maas-tags-snap-2-8-ui/2889)|[CLI](/t/maas-tags-snap-2-9-cli/2890) ~ [UI](/t/maas-tags-snap-2-9-ui/2891)|[CLI](/t/maas-tags-snap-3-0-cli/4021) ~ [UI](/t/maas-tags-snap-3-0-ui/4022)|
+Packages|[CLI](/t/maas-tags-deb-2-7-cli/2892) ~ [UI](/t/maas-tags-deb-2-7-ui/2893)|[CLI](/t/maas-tags-deb-2-8-cli/2894) ~ [UI](/t/maas-tags-deb-2-8-ui/2895)|[CLI](/t/maas-tags-deb-2-9-cli/2896) ~ [UI](/t/maas-tags-deb-2-9-ui/2897)|[CLI](/t/maas-tags-deb-3-0-cli/4023) ~ [UI](/t/maas-tags-deb-3-0-ui/4024)|
+
+Tags are a convenient way to assign descriptive words to machines, interfaces, and storage devices. Using MAAS tags, you can easily select machines that meet certain criteria, helping you to remember that you've defined or reserved certain machines for certain functions. Annotations extend this capability considerably, offering both static annotations ("notes" in the UI, or machine "description" in the CLI) and dynamic annotations ("workload annotations" for the UI, or "owner data" in the CLI). 
+
+This article will show you how to:
+
+{insert branch links}
+
+For convenience, each of the headings is hyperlinked for bookmarking.
+
+<!-- snap-2-7-ui deb-2-7-ui snap-2-8-ui deb-2-8-ui snap-2-9-ui deb-2-9-ui snap-3-0-ui deb-3-0-ui
+* [Work with tags](#heading--work-with-tags)
+ snap-2-7-ui deb-2-7-ui snap-2-8-ui deb-2-8-ui snap-2-9-ui deb-2-9-ui snap-3-0-ui deb-3-0-ui -->
+<!-- snap-2-7-ui deb-2-7-ui snap-2-8-ui deb-2-8-ui snap-2-9-ui deb-2-9-ui snap-3-0-ui deb-3-0-ui
+* [Work with annotations](#heading--work-with-annotations)
+ snap-2-7-ui deb-2-7-ui snap-2-8-ui deb-2-8-ui snap-2-9-ui deb-2-9-ui snap-3-0-ui deb-3-0-ui -->
+<!-- snap-2-7-cli deb-2-7-cli snap-2-8-cli deb-2-8-cli snap-2-9-cli deb-2-9-cli snap-3-0-cli deb-3-0-cli
+* [Work with tags](#heading--work-with-tags)
+ snap-2-7-cli deb-2-7-cli snap-2-8-cli deb-2-8-cli snap-2-9-cli deb-2-9-cli snap-3-0-cli deb-3-0-cli -->
+<!-- snap-2-7-cli deb-2-7-cli snap-2-8-cli deb-2-8-cli snap-2-9-cli deb-2-9-cli snap-3-0-cli deb-3-0-cli
+* [Work with annotations](#heading--work-with-annotations)
+ snap-2-7-cli deb-2-7-cli snap-2-8-cli deb-2-8-cli snap-2-9-cli deb-2-9-cli snap-3-0-cli deb-3-0-cli -->
+
+<!-- snap-2-7-ui deb-2-7-ui snap-2-8-ui deb-2-8-ui snap-2-9-ui deb-2-9-ui snap-3-0-ui deb-3-0-ui
+
+<a href=#heading--work-with-tags><h2 id="heading--work-with-tags">Work with tags</h2></a>
+
+When working with tags, there are some universal rules you need to follow:
+
+1. Tag names can include any combination of alphabetic letters (a-zA-Z), numbers (0-9), dashes (-) and underscores (_).
+2. Tag names can be a maximum of 256 characters in length.
+3. Tag names *cannot* include spaces.
+
+This section will show you how to:
+
+{insert branch links}
+
+For convenience, each of the headings is hyperlinked for bookmarking.
+* [Work with virtual/machine tags](#heading--work-with-virtual/machine-tags)
+* [work with controller tags](#heading--work-with-controller-tags)
+* [work with device tags](#heading--work-with-device-tags)
+* [work with storage tags](#heading--work-with-storage-tags)
+* [work with network tags](#heading--work-with-network-tags)
+* [work with node tags](#heading--work-with-node-tags)
+
+<a href=#heading--work-with-virtual/machine-tags><h3 id="heading--work-with-virtual/machine-tags">Work with virtual/machine tags</h3></a>
+
+This section will show you how to:
+
+{insert branch links}
+
+For convenience, each of the headings is hyperlinked for bookmarking.
+* [Create machine tags with built-in kernel options](#heading--create-machine-tags-with-built-in-kernel-options)
+* [Create/assign machine tags to machines](#heading--create/assign-machine-tags-to-machines)
+* [Remove/delete machine tags from machines](#heading--remove/delete-machine-tags-from-machines)
+* [List machine tags for multiple machines](#heading--list-machine-tags-for-multiple-machines)
+* [View machine tags for one machine](#heading--view-machine-tags-for-one-machine)
+* [View machine tags for a VM host](#heading--view-machine-tags-for-a-vm-host)
+
+<a href=#heading--create-machine-tags-with-built-in-kernel-options><h4 id="heading--create-machine-tags-with-built-in-kernel-options">Create machine tags with built-in kernel options</h4></a>
+
+To create machine tags with built-in kernel options, you must use the [MAAS CLI]({r1}).
+
+<a href=#heading--create/assign-machine-tags-to-machines><h4 id="heading--create/assign-machine-tags-to-machines">Create/assign machine tags to machines</h4></a>
+
+With the MAAS UI, you create tags as you assign them.  The  UI provides a drop-down completion menu to avoid duplicates with spelling errors.  
+
+To create machine tags, and assign them to machines as you create them, use the following procedure:
+
+
+<a href=#heading--remove/delete-machine-tags-from-machines><h4 id="heading--remove/delete-machine-tags-from-machines">Remove/delete machine tags from machines</h4></a>
+
+With the MAAS UI, you remove tags, rather than explicitly deleting them.  Tags are "deleted" when you have removed them from all machines.   
+
+To remove machine tags from a machine, use the following procedure:
+
+<a href=#heading--list-machine-tags-for-multiple-machines><h4 id="heading--list-machine-tags-for-multiple-machines">List machine tags for multiple machines</h4></a>
+
+In the MAAS UI, you don't explicitly list all machine tags; instead, you filter by them using the "Filter by" dropdown.  This filtered list does not distinguish between virtual machines (VMs) and physical machines, unless you've assigned tags to help with that distinction.
+
+Of course, if you need to do so, you can see a list of all the tags assigned to machines by opening the "tags" section of the filter dropdown.  With the UI, you can't see a list of tags assigned to all virtual machine hosts (VM hosts), or filter VM hosts by tag. It is possible to get a more comprehensive list of machine tags [using the CLI]({r2}), and [retrieve a list of VM host tags]({r3}).
+
+Here's how you can filter the machine list by machine tags, using the MAAS UI:
+
+
+<a href=#heading--view-machine-tags-for-one-machine><h4 id="heading--view-machine-tags-for-one-machine">View machine tags for one machine</h4></a>
+
+To view the tags assigned to a specific machine, use the following procedure:
+
+
+<a href=#heading--view-machine-tags-for-a-vm-host><h4 id="heading--view-machine-tags-for-a-vm-host">View machine tags for a VM host</h4></a>
+
+To view the machine tags assigned to a VM host, here's the procedure you'll follow:
+
+Note that you can only see the tags for a VM host in the same place that you change it.  For a more comprehensive list of VM host tags, use the [MAAS CLI]({r3}).
+
+
+<a href=#heading--work-with-controller-tags><h3 id="heading--work-with-controller-tags">work with controller tags</h3></a>
+
+* [create / assign](#heading--create-/-assign)
+* [remove / delete](#heading--remove-/-delete)
+* [list](#heading--list)
+* [view](#heading--view)
+
+<a href=#heading--create-/-assign><h4 id="heading--create-/-assign">create / assign</h4></a>
+
+
+<a href=#heading--remove-/-delete><h4 id="heading--remove-/-delete">remove / delete</h4></a>
+
+
+<a href=#heading--list><h4 id="heading--list">list</h4></a>
+
+
+<a href=#heading--view><h4 id="heading--view">view</h4></a>
+
+
+<a href=#heading--work-with-device-tags><h3 id="heading--work-with-device-tags">work with device tags</h3></a>
+
+* [create / assign](#heading--create-/-assign)
+* [remove / delete](#heading--remove-/-delete)
+* [list](#heading--list)
+* [view](#heading--view)
+
+<a href=#heading--create-/-assign><h4 id="heading--create-/-assign">create / assign</h4></a>
+
+
+<a href=#heading--remove-/-delete><h4 id="heading--remove-/-delete">remove / delete</h4></a>
+
+
+<a href=#heading--list><h4 id="heading--list">list</h4></a>
+
+
+<a href=#heading--view><h4 id="heading--view">view</h4></a>
+
+
+<a href=#heading--work-with-storage-tags><h3 id="heading--work-with-storage-tags">work with storage tags</h3></a>
+
+* [block devices](#heading--block-devices)
+* [partitions](#heading--partitions)
+
+<a href=#heading--block-devices><h4 id="heading--block-devices">block devices</h4></a>
+
+
+<a href=#heading--partitions><h4 id="heading--partitions">partitions</h4></a>
+
+
+<a href=#heading--work-with-network-tags><h3 id="heading--work-with-network-tags">work with network tags</h3></a>
+
+* [create / assign](#heading--create-/-assign)
+* [remove / delete](#heading--remove-/-delete)
+* [list](#heading--list)
+* [view](#heading--view)
+
+<a href=#heading--create-/-assign><h4 id="heading--create-/-assign">create / assign</h4></a>
+
+
+<a href=#heading--remove-/-delete><h4 id="heading--remove-/-delete">remove / delete</h4></a>
+
+
+<a href=#heading--list><h4 id="heading--list">list</h4></a>
+
+
+<a href=#heading--view><h4 id="heading--view">view</h4></a>
+
+
+<a href=#heading--work-with-node-tags><h3 id="heading--work-with-node-tags">work with node tags</h3></a>
+
+* [CLI-only](#heading--cli-only)
+* [link](#heading--link)
+
+<a href=#heading--cli-only><h4 id="heading--cli-only">CLI-only</h4></a>
+
+
+<a href=#heading--link><h4 id="heading--link">link</h4></a>
+
+ snap-2-7-ui deb-2-7-ui snap-2-8-ui deb-2-8-ui snap-2-9-ui deb-2-9-ui snap-3-0-ui deb-3-0-ui -->
+<!-- snap-2-7-ui deb-2-7-ui snap-2-8-ui deb-2-8-ui snap-2-9-ui deb-2-9-ui snap-3-0-ui deb-3-0-ui
+
+<a href=#heading--work-with-annotations><h2 id="heading--work-with-annotations">Work with annotations</h2></a>
+
+* [Work with static annotations](#heading--work-with-static-annotations)
+* [{3.0} Work with dynamic annotations](#heading--{3.0}-work-with-dynamic-annotations)
+
+<a href=#heading--work-with-static-annotations><h3 id="heading--work-with-static-annotations">Work with static annotations</h3></a>
+
+
+<a href=#heading--{3.0}-work-with-dynamic-annotations><h3 id="heading--{3.0}-work-with-dynamic-annotations">{3.0} Work with dynamic annotations</h3></a>
+
+ snap-2-7-ui deb-2-7-ui snap-2-8-ui deb-2-8-ui snap-2-9-ui deb-2-9-ui snap-3-0-ui deb-3-0-ui -->
+<!-- snap-2-7-cli deb-2-7-cli snap-2-8-cli deb-2-8-cli snap-2-9-cli deb-2-9-cli snap-3-0-cli deb-3-0-cli
+
+<a href=#heading--work-with-tags><h2 id="heading--work-with-tags">Work with tags</h2></a>
+
+* [Work with machine tags](#heading--work-with-machine-tags)
+* [Work with virtual machine tags](#heading--work-with-virtual-machine-tags)
+* [Work with region controller tags](#heading--work-with-region-controller-tags)
+* [Work with rack controller tags](#heading--work-with-rack-controller-tags)
+* [Work with device tags](#heading--work-with-device-tags)
+* [Work with storage tags](#heading--work-with-storage-tags)
+* [Work with network tags](#heading--work-with-network-tags)
+* [Work with node tags](#heading--work-with-node-tags)
+
+<a href=#heading--work-with-machine-tags><h3 id="heading--work-with-machine-tags">Work with machine tags</h3></a>
+
+* [Create tags](#heading--create-tags)
+* [{r1}Create tags with built-in kernel options](#heading--{r1}create-tags-with-built-in-kernel-options)
+* [Assign machine tags to a machine](#heading--assign-machine-tags-to-a-machine)
+* [Remove machine tags from a machine](#heading--remove-machine-tags-from-a-machine)
+* [{r2}List machine tags for all machines](#heading--{r2}list-machine-tags-for-all-machines)
+* [View machine tags for one machine](#heading--view-machine-tags-for-one-machine)
+
+<a href=#heading--create-tags><h4 id="heading--create-tags">Create tags</h4></a>
+
+
+<a href=#heading--{r1}create-tags-with-built-in-kernel-options><h4 id="heading--{r1}create-tags-with-built-in-kernel-options">{r1}Create tags with built-in kernel options</h4></a>
+
+
+<a href=#heading--assign-machine-tags-to-a-machine><h4 id="heading--assign-machine-tags-to-a-machine">Assign machine tags to a machine</h4></a>
+
+maas $PROFILE tag update-nodes $TAG_NAME add=$SYSTEM_ID
+
+
+<a href=#heading--remove-machine-tags-from-a-machine><h4 id="heading--remove-machine-tags-from-a-machine">Remove machine tags from a machine</h4></a>
+
+maas $PROFILE tag update-nodes $TAG_NAME remove=$SYSTEM_ID
+
+<a href=#heading--{r2}list-machine-tags-for-all-machines><h4 id="heading--{r2}list-machine-tags-for-all-machines">{r2}List machine tags for all machines</h4></a>
+
+maas admin machines read | jq -r '(["hostname","sysid","machine_tags"]|(.,map(length*"-"))),(.[]|[.hostname,.system_id,.tag_names[]]) | @tsv' | column -t
+
+<a href=#heading--view-machine-tags-for-one-machine><h4 id="heading--view-machine-tags-for-one-machine">View machine tags for one machine</h4></a>
+
+maas admin machine read xn8taa | jq -r '(["hostname","sysid","machine_tags"]|(.,map(length*"-"))),([.hostname,.system_id,.tag_names[]]) | @tsv' | column -t
+
+
+<a href=#heading--work-with-virtual-machine-tags><h3 id="heading--work-with-virtual-machine-tags">Work with virtual machine tags</h3></a>
+
+* [Assign tags to a virtual machine](#heading--assign-tags-to-a-virtual-machine)
+* [Remove tags from a virtual machine](#heading--remove-tags-from-a-virtual-machine)
+* [List tags for all virtual machines](#heading--list-tags-for-all-virtual-machines)
+* [{r3}List tags for all VM hosts](#heading--{r3}list-tags-for-all-vm-hosts)
+* [View tags for one virtual machine](#heading--view-tags-for-one-virtual-machine)
+
+<a href=#heading--assign-tags-to-a-virtual-machine><h4 id="heading--assign-tags-to-a-virtual-machine">Assign tags to a virtual machine</h4></a>
+
+maas $PROFILE tag update-nodes $TAG_NAME add=$SYSTEM_ID
+
+<a href=#heading--remove-tags-from-a-virtual-machine><h4 id="heading--remove-tags-from-a-virtual-machine">Remove tags from a virtual machine</h4></a>
+
+maas $PROFILE tag update-nodes $TAG_NAME remove=$SYSTEM_ID
+
+<a href=#heading--list-tags-for-all-virtual-machines><h4 id="heading--list-tags-for-all-virtual-machines">List tags for all virtual machines</h4></a>
+
+maas admin vmhosts read | jq -r '("name","id","tags"]|(.,map(length*"-"))),(.[]|[.name,.id,.tags[]]) | @tsv' @ column -t
+
+<a href=#heading--{r3}list-tags-for-all-vm-hosts><h4 id="heading--{r3}list-tags-for-all-vm-hosts">{r3}List tags for all VM hosts</h4></a>
+
+
+<a href=#heading--view-tags-for-one-virtual-machine><h4 id="heading--view-tags-for-one-virtual-machine">View tags for one virtual machine</h4></a>
+
+maas admin vmhost read 1 | jq -r '("name","id","tags"]|(.,map(length*"-"))),([.name,.id,.tags[]]) | @tsv' @ column -t
+
+<a href=#heading--work-with-region-controller-tags><h3 id="heading--work-with-region-controller-tags">Work with region controller tags</h3></a>
+
+* [Assign tags to a region controller](#heading--assign-tags-to-a-region-controller)
+* [Remove tags from a region controller](#heading--remove-tags-from-a-region-controller)
+* [List tags for all region controllers](#heading--list-tags-for-all-region-controllers)
+* [View tags for one region controller](#heading--view-tags-for-one-region-controller)
+
+<a href=#heading--assign-tags-to-a-region-controller><h4 id="heading--assign-tags-to-a-region-controller">Assign tags to a region controller</h4></a>
+
+maas $PROFILE tag update-nodes $TAG_NAME add=$SYSTEM_ID
+
+<a href=#heading--remove-tags-from-a-region-controller><h4 id="heading--remove-tags-from-a-region-controller">Remove tags from a region controller</h4></a>
+
+maas $PROFILE tag update-nodes $TAG_NAME remove=$SYSTEM_ID
+
+<a href=#heading--list-tags-for-all-region-controllers><h4 id="heading--list-tags-for-all-region-controllers">List tags for all region controllers</h4></a>
+
+maas admin region-controllers read | jq -r '(["hostname","sysid","tags"]|(.,map(length*"-"))),(.[]|[.hostname,.system_id,.tag_names[]]) | @tsv' | column -t
+
+<a href=#heading--view-tags-for-one-region-controller><h4 id="heading--view-tags-for-one-region-controller">View tags for one region controller</h4></a>
+
+maas admin region-controller read xn8taa | jq -r '(["hostname","sysid","tags"]|(.,map(length*"-"))),([.hostname,.system_id,.tag_names[]]) | @tsv' | column -t
+
+<a href=#heading--work-with-rack-controller-tags><h3 id="heading--work-with-rack-controller-tags">Work with rack controller tags</h3></a>
+
+* [Assign tags to a rack controller](#heading--assign-tags-to-a-rack-controller)
+* [Remove tags from a rack controller](#heading--remove-tags-from-a-rack-controller)
+* [List tags for all rack controllers](#heading--list-tags-for-all-rack-controllers)
+* [View tags for one rack controller](#heading--view-tags-for-one-rack-controller)
+
+<a href=#heading--assign-tags-to-a-rack-controller><h4 id="heading--assign-tags-to-a-rack-controller">Assign tags to a rack controller</h4></a>
+
+maas $PROFILE tag update-nodes $TAG_NAME add=$SYSTEM_ID
+
+<a href=#heading--remove-tags-from-a-rack-controller><h4 id="heading--remove-tags-from-a-rack-controller">Remove tags from a rack controller</h4></a>
+
+maas $PROFILE tag update-nodes $TAG_NAME remove=$SYSTEM_ID
+
+<a href=#heading--list-tags-for-all-rack-controllers><h4 id="heading--list-tags-for-all-rack-controllers">List tags for all rack controllers</h4></a>
+
+maas admin rack-controllers read | jq -r '(["hostname","sysid","tags"]|(.,map(length*"-"))),(.[]|[.hostname,.system_id,.tag_names[]]) | @tsv' | column -t
+
+<a href=#heading--view-tags-for-one-rack-controller><h4 id="heading--view-tags-for-one-rack-controller">View tags for one rack controller</h4></a>
+
+maas admin rack-controller read xn8taa | jq -r '(["hostname","sysid","tags"]|(.,map(length*"-"))),([.hostname,.system_id,.tag_names[]]) | @tsv' | column -t
+
+<a href=#heading--work-with-device-tags><h3 id="heading--work-with-device-tags">Work with device tags</h3></a>
+
+* [Assign tags to a device](#heading--assign-tags-to-a-device)
+* [Remove tags from a device](#heading--remove-tags-from-a-device)
+* [List tags for all devices](#heading--list-tags-for-all-devices)
+* [View tags for one device](#heading--view-tags-for-one-device)
+
+<a href=#heading--assign-tags-to-a-device><h4 id="heading--assign-tags-to-a-device">Assign tags to a device</h4></a>
+
+maas $PROFILE tag update-nodes $TAG_NAME add=$SYSTEM_ID
+
+<a href=#heading--remove-tags-from-a-device><h4 id="heading--remove-tags-from-a-device">Remove tags from a device</h4></a>
+
+maas $PROFILE tag update-nodes $TAG_NAME remove=$SYSTEM_ID
+
+<a href=#heading--list-tags-for-all-devices><h4 id="heading--list-tags-for-all-devices">List tags for all devices</h4></a>
+
+
+<a href=#heading--view-tags-for-one-device><h4 id="heading--view-tags-for-one-device">View tags for one device</h4></a>
+
+
+<a href=#heading--work-with-storage-tags><h3 id="heading--work-with-storage-tags">Work with storage tags</h3></a>
+
+* [Work with block device tags](#heading--work-with-block-device-tags)
+* [Work with partition tags](#heading--work-with-partition-tags)
+
+<a href=#heading--work-with-block-device-tags><h4 id="heading--work-with-block-device-tags">Work with block device tags</h4></a>
+
+
+<a href=#heading--work-with-partition-tags><h4 id="heading--work-with-partition-tags">Work with partition tags</h4></a>
+
+
+<a href=#heading--work-with-network-tags><h3 id="heading--work-with-network-tags">Work with network tags</h3></a>
+
+* [Assign tags to a network interface](#heading--assign-tags-to-a-network-interface)
+* [Remove tags from a network interface](#heading--remove-tags-from-a-network-interface)
+* [List tags for all network interfaces](#heading--list-tags-for-all-network-interfaces)
+* [View tags for one network interface](#heading--view-tags-for-one-network-interface)
+
+<a href=#heading--assign-tags-to-a-network-interface><h4 id="heading--assign-tags-to-a-network-interface">Assign tags to a network interface</h4></a>
+
+maas admin interface add-tag xn8taa 9 tag="something"
+
+<a href=#heading--remove-tags-from-a-network-interface><h4 id="heading--remove-tags-from-a-network-interface">Remove tags from a network interface</h4></a>
+
+maas admin interface remove-tag xn8taa 9 tag="prokoko"
+
+<a href=#heading--list-tags-for-all-network-interfaces><h4 id="heading--list-tags-for-all-network-interfaces">List tags for all network interfaces</h4></a>
+
+maas admin nodes read | jq -r '(["hostname","sysid","interface_tags"]|(.,map(length*"-"))),(.[]|[.hostname,.system_id,.interface_set[].tags[]]) | @tsv' @ column -t
+
+maas admin interfaces read xn8taa | jq -r '(["ID","TAGS"]|(map(length*"-"))),(.[]|[.id,.tags[]]) | @tsv' | column -t
+
+<a href=#heading--view-tags-for-one-network-interface><h4 id="heading--view-tags-for-one-network-interface">View tags for one network interface</h4></a>
+
+maas admin interface read xn8taa 9 | jq -r '([.hostname,.tags[]])'
+
+
+<a href=#heading--work-with-node-tags><h3 id="heading--work-with-node-tags">Work with node tags</h3></a>
+
+* [Assign tags to a node](#heading--assign-tags-to-a-node)
+* [View tags for one node](#heading--view-tags-for-one-node)
+* [Remove tags from a node](#heading--remove-tags-from-a-node)
+* [List tags for all nodes](#heading--list-tags-for-all-nodes)
+
+<a href=#heading--assign-tags-to-a-node><h4 id="heading--assign-tags-to-a-node">Assign tags to a node</h4></a>
+
+maas $PROFILE tag update-nodes $TAG_NAME add=$SYSTEM_ID
+
+<a href=#heading--view-tags-for-one-node><h4 id="heading--view-tags-for-one-node">View tags for one node</h4></a>
+
+maas admin node read xn8taa | jq -r '(.hostname,.tag_names[])'
+
+<a href=#heading--remove-tags-from-a-node><h4 id="heading--remove-tags-from-a-node">Remove tags from a node</h4></a>
+
+maas $PROFILE tag update-nodes $TAG_NAME remove=$SYSTEM_ID
+
+<a href=#heading--list-tags-for-all-nodes><h4 id="heading--list-tags-for-all-nodes">List tags for all nodes</h4></a>
+
+maas admin nodes read | jq -r '(["hostname","sysid","tags"]|(.,map(length*"-"))),(.[]|[.hostname,.sysid,.tag_names[]]) | @tsv' | column -t
+ snap-2-7-cli deb-2-7-cli snap-2-8-cli deb-2-8-cli snap-2-9-cli deb-2-9-cli snap-3-0-cli deb-3-0-cli -->
+<!-- snap-2-7-cli deb-2-7-cli snap-2-8-cli deb-2-8-cli snap-2-9-cli deb-2-9-cli snap-3-0-cli deb-3-0-cli
+
+<a href=#heading--work-with-annotations><h2 id="heading--work-with-annotations">Work with annotations</h2></a>
+
+* [work with static annotations](#heading--work-with-static-annotations)
+* [work with dynamic (workload) annotations](#heading--work-with-dynamic-(workload)-annotations)
+
+<a href=#heading--work-with-static-annotations><h3 id="heading--work-with-static-annotations">work with static annotations</h3></a>
+
+* [machine description](#heading--machine-description)
+
+<a href=#heading--machine-description><h4 id="heading--machine-description">machine description</h4></a>
+
+
+<a href=#heading--work-with-dynamic-(workload)-annotations><h3 id="heading--work-with-dynamic-(workload)-annotations">work with dynamic (workload) annotations</h3></a>
+
+* [set owner data](#heading--set-owner-data)
+
+<a href=#heading--set-owner-data><h4 id="heading--set-owner-data">set owner data</h4></a>
+
+ snap-2-7-cli deb-2-7-cli snap-2-8-cli deb-2-8-cli snap-2-9-cli deb-2-9-cli snap-3-0-cli deb-3-0-cli -->
+

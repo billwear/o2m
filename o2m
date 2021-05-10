@@ -1,0 +1,121 @@
+#!/usr/bin/python
+
+import opml
+import sys
+
+def make_heading(text, level):
+    if text.find("{todo}") != -1:
+        return "skip this one"
+    text = text.replace("{ui}","")
+    text = text.replace("{cli}","")
+    heading_id = "heading--" + text.replace(" ","-").lower()
+    heading = "\n<a href=#" + heading_id + "><h" + str(level) + " id=\"" + heading_id + "\">" + text + "</h" + str(level) + "></a>\n\n"
+    return heading
+
+def make_index_entry(text):
+    if text.find("{todo}") != -1:
+        return "skip this one"
+    text = text.replace("{ui}","")
+    text = text.replace("{cli}","")
+    heading_id = "#heading--" + text.replace(" ","-").lower()
+    index_entry = "* [" + text + "](" + heading_id + ")\n"
+    return index_entry
+
+def rad_open(text):
+    if text.find("{ui}") != -1:
+        radopen = "<!-- snap-2-7-ui deb-2-7-ui snap-2-8-ui deb-2-8-ui"
+        radopen += " snap-2-9-ui deb-2-9-ui snap-3-0-ui deb-3-0-ui\n"
+    elif text.find("{cli}") != -1:
+        radopen = "<!-- snap-2-7-cli deb-2-7-cli snap-2-8-cli deb-2-8-cli"
+        radopen += " snap-2-9-cli deb-2-9-cli snap-3-0-cli deb-3-0-cli\n"
+    else:
+        radopen = ""
+    return radopen
+
+def rad_close(text):
+    if text.find("{ui}") != -1:
+        radclose = " snap-2-7-ui deb-2-7-ui snap-2-8-ui deb-2-8-ui"
+        radclose += " snap-2-9-ui deb-2-9-ui snap-3-0-ui deb-3-0-ui -->\n"
+    elif text.find("{cli}") != -1:
+        radclose = " snap-2-7-cli deb-2-7-cli snap-2-8-cli deb-2-8-cli"
+        radclose += " snap-2-9-cli deb-2-9-cli snap-3-0-cli deb-3-0-cli -->\n"
+    else:
+        radclose = ""
+    return radclose
+    
+
+if len(sys.argv) != 2:
+    print("usage: o2m opml-filename")
+    sys.exit(1)
+
+outline = opml.parse('/home/stormrider/src/o2m/opml/ta.opml')
+markdown = ""
+
+# loop through the outline and build up a markdown document on-the-fly
+#
+for i in outline:
+    heading = make_heading(i.text,1)
+    markdown += heading
+    try:
+        markdown += i._note
+    except:
+        pass
+    for j in i:
+        markdown += rad_open(j.text)
+        index_entry = make_index_entry(j.text)
+        if index_entry == "skip this one":
+            continue
+        markdown += index_entry
+        markdown += rad_close(j.text)
+    markdown += "\n"
+    for j in i:
+        markdown += rad_open(j.text)
+        heading = make_heading(j.text,2)
+        if heading == "skip this one":
+            continue
+        markdown += heading
+        try:
+            markdown += j._note
+        except:
+            pass
+        for k in j:
+            markdown += rad_open(k.text)
+            index_entry = make_index_entry(k.text)
+            if index_entry == "skip this one":
+                continue
+            markdown += index_entry
+            markdown += rad_close(k.text)
+        for k in j:
+            markdown += rad_open(k.text)
+            heading = make_heading(k.text,3)
+            if heading == "skip this one":
+                continue
+            markdown += heading
+            try:
+                markdown += k._note
+            except:
+                pass
+            for l in k:
+                markdown += rad_open(l.text)
+                index_entry = make_index_entry(l.text)
+                if index_entry == "skip this one":
+                    continue
+                markdown += index_entry
+                markdown += rad_close(l.text)
+            for l in k:
+                markdown += rad_open(l.text)
+                heading = make_heading(l.text,4)
+                if heading == "skip this one":
+                    continue
+                markdown += heading
+                try:
+                    markdown += l._note
+                except:
+                    pass
+        markdown += rad_close(j.text)
+print(markdown)
+
+    
+
+
+
